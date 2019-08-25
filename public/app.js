@@ -19,13 +19,12 @@ $(document).on("click", ".articleRemove", function () {
     var articleID = $(this).attr("data-_id");
     $.ajax({
         method: "POST",
-        url: "/removed/" + articleID,
+        url: "/remove/" + articleID,
         data: {
             saved: false
         }
     })
-    .then(function (result) {
-        console.log(result);
+    .then(function () {
         location.reload();
     });
 });

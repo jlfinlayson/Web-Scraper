@@ -114,7 +114,7 @@ function (req,res) {
 });
 
 //Mark Article as Removed
-router.post("/saved/:id",
+router.post("/remove/:id",
 function (req,res) {
   db.Article.updateOne(
     {
