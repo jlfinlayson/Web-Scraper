@@ -1,7 +1,12 @@
+// Require Express Package
 var router = require("express").Router();
+// Require Models 
 var db = require("../models");
+// Require Axios Package
 var axios = require("axios");
+// Require Cheerio Package
 var cheerio = require("cheerio");
+// Require Mongojs Package
 var mongojs = require("mongojs");
 
 //Home
@@ -85,4 +90,5 @@ router.get("/clear", function(req, res) {
 
 });
 
+// Exports Router Information
 module.exports = router;
