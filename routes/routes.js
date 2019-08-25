@@ -82,13 +82,64 @@ router.get("/articles", function(req, res) {
 
 //Saved Articles
 router.get("/saved", function(req, res) {
+  db.Article.find({saved:true})
+    .then(function(dbArticle) {
+      var hbsObject = {
+          articles: dbArticle
+      };
+      res.render("saved", hbsObject);
+    })
+    .catch(function(err) {
+      res.json(err);
+    });
+});
 
+//Mark Article as Saved
+router.post("/saved/:id",
+function (req,res) {
+  db.Article.updateOne(
+    {
+      _id: mongojs.ObjectId(req.params.id)
+    },
+    {
+      $set: {
+        saved: true
+      },
+    }).then(function(dbArticle) {
+      res.json(dbArticle);
+    })
+    .catch(function(err) {
+      res.json(err);
+    });
+});
+
+//Mark Article as Removed
+router.post("/saved/:id",
+function (req,res) {
+  db.Article.updateOne(
+    {
+      _id: mongojs.ObjectId(req.params.id)
+    },
+    {
+      $set: {
+        saved: false
+      },
+    }).then(function(dbArticle) {
+      res.json(dbArticle);
+    })
+    .catch(function(err) {
+      res.json(err);
+    });
 });
 
 //Clear Articles
 router.get("/clear", function(req, res) {
 
 });
+
+//Add Comment
+
+//Remove Comment
 
 // Exports Router Information
 module.exports = router;
