@@ -1,5 +1,23 @@
 {{#each articles}}
-    <h3>{{title}}</h3>
-	<a href={{link}}>{{link}}</a>
-	<p>{{summary}}</p>
+<div class="card my-5 container">
+    <div class="card-header bg-dark row">
+        <div class="col-10">
+            <a target="_blank" href={{link}}>
+                <h3>{{title}}</h3>
+            </a>
+        </div>
+        <div class="col-2">
+            <button type="button" class="btn btn-success articleSave" data-_id="{{_id}}">Save Article</button>
+        </div>
+    </div>
+    <div class="card-body row">
+        <div class="col-5">
+            <img src="{{image}}">
+        </div>
+        <div class="col-5">
+            <p>{{summary}}</p>
+        </div>
+    </div>
+    
+</div>
 {{/each}}
