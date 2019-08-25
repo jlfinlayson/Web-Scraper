@@ -1,3 +1,4 @@
+{{!-- Cards for Saved Articles --}}
 {{#each articles}}
 {{#if saved}}
 <div class="card my-5 container">
@@ -11,7 +12,7 @@
             <button type="button" class="btn btn-success articleRemove" data-_id="{{_id}}">Remove Article</button>
         </div>
         <div class="col-3">
-            <button type="button" class="btn btn-success articleComment" data-_id="{{_id}}">Comment</button>
+            <button type="button" class="btn btn-success articleComment" data-_id="{{_id}}" data-toggle="modal" data-target="#comment-{{this._id}}">Comment</button>
         </div>
     </div>
     <div class="card-body row">
@@ -24,5 +25,35 @@
     </div>
     
 </div>
+
+
+{{!-- Note Modal --}}
+<div class="modal fade" id="comment-{{this._id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{this.title}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="your name here" id="author" data-id="author">
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" rows="3" placeholder="write comment here" id="comment" data-id="comment"></textarea>
+            </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 {{/if}}
 {{/each}}

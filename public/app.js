@@ -1,5 +1,21 @@
+//Scrape Button
+$("#scrapeBtn").on("click", function() {
+    $.ajax({
+        method: "GET",
+        url: "/scrape",
+    })
+    .then(function (err,results) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("scraping...");
+            location.reload();
+        };
+    });
+});
+
 //Save Article
-$(document).on("click", ".articleSave", function () {
+$(".articleSave").on("click", function () {
     var articleID = $(this).attr("data-_id");
     $.ajax({
         method: "POST",
@@ -15,7 +31,7 @@ $(document).on("click", ".articleSave", function () {
 });
 
 //Remove Article
-$(document).on("click", ".articleRemove", function () {
+$(".articleRemove").on("click", function () {
     var articleID = $(this).attr("data-_id");
     $.ajax({
         method: "POST",
@@ -29,10 +45,15 @@ $(document).on("click", ".articleRemove", function () {
     });
 });
 
-//Scrape Button
+//Add Comment
+$(".articleComment").on("click", function () {
+    
+})
+
+//Remove Comment
 
 //Clear Button
-$(document).on("click", "#clearBtn", function () {
+$("#clearBtn").on("click", function () {
     $.ajax({
         method: "GET",
         url: "/clear",
@@ -41,7 +62,3 @@ $(document).on("click", "#clearBtn", function () {
         location.reload();
     });
 });
-
-//Add Comment
-
-//Remove Comment
