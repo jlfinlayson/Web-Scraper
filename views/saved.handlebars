@@ -1,0 +1,28 @@
+{{#each articles}}
+{{#if saved}}
+<div class="card my-6 container">
+    <div class="card-header bg-dark row">
+        <div class="col-10">
+            <a target="_blank" href={{link}}>
+                <h3>{{title}}</h3>
+            </a>
+        </div>
+        <div class="col-3">
+            <button type="button" class="btn btn-success articleRemove" data-_id="{{_id}}">Remove Article</button>
+        </div>
+        <div class="col-3">
+            <button type="button" class="btn btn-success articleComment" data-_id="{{_id}}">Comment</button>
+        </div>
+    </div>
+    <div class="card-body row">
+        <div class="col-5">
+            <img src="{{image}}">
+        </div>
+        <div class="col-5">
+            <p>{{summary}}</p>
+        </div>
+    </div>
+    
+</div>
+{{/if}}
+{{/each}}
