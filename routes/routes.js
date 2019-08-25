@@ -134,7 +134,15 @@ function (req,res) {
 
 //Clear Articles
 router.get("/clear", function(req, res) {
-
+  db.Article.deleteMany({}, function(err,response) {
+    if (err) {
+      console.log(err);
+      response.send(err);
+    }
+    else {
+      res.send(response);
+    };
+  });
 });
 
 //Add Comment

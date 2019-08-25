@@ -32,6 +32,15 @@ $(document).on("click", ".articleRemove", function () {
 //Scrape Button
 
 //Clear Button
+$(document).on("click", "#clearBtn", function () {
+    $.ajax({
+        method: "GET",
+        url: "/clear",
+    })
+    .then(function () {
+        location.reload();
+    });
+});
 
 //Add Comment
 
