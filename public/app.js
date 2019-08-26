@@ -45,10 +45,27 @@ $(".articleRemove").on("click", function () {
     });
 });
 
-//Add Comment
-$(".articleComment").on("click", function () {
-    
-})
+// Add Comment
+$(".saveComment").on("click", function () {
+    var articleID = $(this).attr("data-_id");
+    $.ajax({
+        method: "POST",
+        url: "/articles" + articleID,
+        data: {
+            author: $("#author").val(),
+            comment: $("#commentT").val()
+        }
+    })
+    .then(function(data){
+        console.log(data);
+        location.reload();
+        $("#author").val("");
+        $("#commentT").val("");
+    }).catch(function(error){
+        console.log(error);
+    });
+});
+
 
 //Remove Comment
 

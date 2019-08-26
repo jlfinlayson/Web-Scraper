@@ -18,28 +18,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    {{!-- Personal CSS --}}
+    <link rel="stylesheet" href="/public/styles.css">
+     
 
 </head>
 
 <body>
-    {{!-- Navbar --}}
-    <nav class="navbar-expand-lg navbar-dark bg-dark">
-        <div class="navbar-nav">
-        <a class="navbar-brand" href="/articles">Web Scraper</a>
-            <a class="nav-item nav-link" href="/articles">Home</a>
-            <a class="nav-item nav-link" href="/saved">Saved Articles</a>
-            <button class="btn btn-success my-2" type="button" id="scrapeBtn">Scrape New Articles</button>
-            <button class="btn btn-success my-2" type="button" id="clearBtn">Clear Articles</button>
-        </div>
-    </nav>
-
-    {{!-- Header --}}
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="text-center mt-5">MONGO SCRAPER</h1>
-            <h2 class="text-center">ALTPRESS EDITION</h2>  
-        </div>
-    </div>
 
     {{{ body }}}
 
@@ -47,7 +32,7 @@
     {{!-- jQuery CDN --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     {{!-- app.js --}}
-    <script src="app.js"></script>
+    <script src="/app.js"></script>
 </body>
 
 </html>

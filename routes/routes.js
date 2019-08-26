@@ -132,6 +132,42 @@ function (req,res) {
     });
 });
 
+// Grab Article for Comments
+router.get("/articles/:id", function (req, res) {
+
+  db.Article.findOne(
+    { _id: req.params.id })
+    .populate("comment")
+    .then(function (dbArticle) {
+      // If any Libraries are found, send them to the client with any associated Books
+      res.json(dbArticle);
+    })
+    .catch(function (err) {
+      // If an error occurs, send it back to the client
+      res.json(err);
+    });
+});
+
+//Add Comment
+router.post("/articles/:id", function (req, res) {
+  db.Comment.create(req.body)
+  .then(function(dbComment){
+    return db.Article.findOneAndUpdate({
+      _id: req.params.id
+    },
+    { $push: { comment: dbComment._id } },
+    { new: true });
+  })
+  .then(function (dbArticle) {
+    res.json(dbArticle);
+  })
+  .catch(function (err) {
+    res.json(err);
+  });
+});
+
+//Remove Comment
+
 //Clear Articles
 router.get("/clear", function(req, res) {
   db.Article.deleteMany({}, function(err,response) {
@@ -145,9 +181,6 @@ router.get("/clear", function(req, res) {
   });
 });
 
-//Add Comment
-
-//Remove Comment
 
 // Exports Router Information
 module.exports = router;

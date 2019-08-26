@@ -1,3 +1,22 @@
+{{!-- Home Navbar --}}
+    <nav class="navbar-expand-lg navbar-dark bg-dark">
+        <div class="navbar-nav">
+        <a class="navbar-brand" href="/articles">Web Scraper</a>
+            <a class="nav-item nav-link" href="/articles">Home</a>
+            <a class="nav-item nav-link" href="/saved">Saved Articles</a>
+            <button class="btn btn-success my-2" type="button" id="scrapeBtn">Scrape New Articles</button>
+            <button class="btn btn-success my-2" type="button" id="clearBtn">Clear Articles</button>
+        </div>
+    </nav>
+
+    {{!-- Home Header --}}
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="text-center mt-5">MONGO SCRAPER</h1>
+            <h2 class="text-center">ALTPRESS EDITION</h2>  
+        </div>
+    </div>
+
 {{!-- Cards For Articles --}}
 {{#each articles}}
 <div class="card my-5 container">
