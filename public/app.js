@@ -50,15 +50,15 @@ $(".saveComment").on("click", function () {
     var articleID = $(this).attr("data-_id");
     $.ajax({
         method: "POST",
-        url: "/articles" + articleID,
-        data: {
+        url: "/articles/" + "5d6473e83d5a455415108aa7",
+        comment: {
             author: $("#author").val(),
-            comment: $("#commentT").val()
+            body: $("#commentT").val()
         }
     })
     .then(function(data){
         console.log(data);
-        location.reload();
+        // location.reload();
         $("#author").val("");
         $("#commentT").val("");
     }).catch(function(error){
