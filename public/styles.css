@@ -1,0 +1,37 @@
+body{
+    background-color: #E6D4FC;
+}
+
+.jumbotron {
+    background-image: url("/bg.jpeg") !important;
+    background-size: cover;
+}
+
+h1{
+    font-family: 'Roboto', sans-serif;
+    font-size: 60px;
+    color: #240C3C;
+}
+
+h2{
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    color: #240C3C;
+}
+
+h3{
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    color: #FFF;
+    text-align: center;
+}
+
+p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+
+.nav{
+    /* background-color: #240C3C; */
+    color: #FFF; 
+}

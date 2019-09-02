@@ -53,7 +53,7 @@ router.get("/scrape", function(req, res) {
         .children(".td-module-thumb")
         .children("a")
         .children("img")
-        .attr("src");
+        .attr("currentSrc");
 
       db.Article.create(result)
         .then(function(dbArticle) {

@@ -1,76 +1,44 @@
 {{!-- Navbar --}}
-    <nav class="navbar-expand-lg navbar-dark bg-dark">
-        <div class="navbar-nav">
+<nav class="navbar-expand-lg navbar-dark bg-dark nav">
+    <div class="navbar-nav mt-3 ml-2">
         <a class="navbar-brand" href="/articles">Web Scraper</a>
-            <a class="nav-item nav-link" href="/articles">Home</a>
-            <a class="nav-item nav-link" href="/saved">Saved Articles</a>
-            <button class="btn btn-success my-2" type="button" id="clearBtn">Clear Articles</button>
-        </div>
-    </nav>
-
-    {{!-- Header --}}
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="text-center mt-5">SAVED ARTICLES</h1>
-            <h2 class="text-center">YOUR SAVED ARTICLES</h2>  
-        </div>
+        <a class="nav-item nav-link" href="/articles">Home</a>
+        <a class="nav-item nav-link" href="/saved">Saved Articles</a>
+        <button class="btn btn-outline-light ml-3 mb-3" type="button" id="clearBtn">Clear Articles</button>
     </div>
+</nav>
+
+{{!-- Header --}}
+<div class="jumbotron jumbotron-fluid shadow">
+  <div class="container">
+    <h1 class="text-center mt-4">SAVED ARTICLES</h1>
+    <h2 class="text-center mb-5">YOUR SAVED ARTICLES</h2>
+  </div>
+</div>
 
 {{!-- Cards for Saved Articles --}}
 {{#each articles}}
 {{#if saved}}
-<div class="card my-5 container">
+<div class="card my-5 container shadow">
     <div class="card-header bg-dark row">
-        <div class="col-10">
+        <div class="col-12">
             <a target="_blank" href={{link}}>
-                <h3>{{title}}</h3>
+                <h3 class="mt-2">{{title}}</h3>
             </a>
-        </div>
-        <div class="col-3">
-            <button type="button" class="btn btn-success articleRemove" data-_id="{{_id}}">Remove Article</button>
-        </div>
-        <div class="col-3">
-            <button type="button" class="btn btn-success articleComment" data-_id="{{_id}}" data-toggle="modal" data-target="#comment-{{this._id}}">Comment</button>
         </div>
     </div>
     <div class="card-body row">
-        <div class="col-5">
-            <img src="{{image}}">
+        <div class="col-4">
+            <img class="ml-5 shadow" src="{{image}}">
         </div>
-        <div class="col-5">
-            <p>{{summary}}</p>
+        <div class="col-6">
+            <p class="mt-4">{{summary}}</p>
+        </div>
+        <div class="col-2">
+            <button type="button" class="btn btn-dark articleRemove mt-5 ml-3" data-_id="{{_id}}">Unsave Article</button>
         </div>
     </div>
-    
-</div>
 
-
-{{!-- Note Modal --}}
-<div class="modal fade" id="comment-{{this._id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">{{this.title}}</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="your name here" id="author" data-id="author">
-            </div>
-            <div class="form-group">
-              <textarea class="form-control" rows="4" placeholder="write comment here" id="commentT" data-id="comment"></textarea>
-            </div>
-          </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary saveComment">Save Comment</button>
-      </div>
-    </div>
-  </div>
 </div>
 
 {{/if}}
