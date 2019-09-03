@@ -53,7 +53,7 @@ router.get("/scrape", function(req, res) {
         .children(".td-module-thumb")
         .children("a")
         .children("img")
-        .attr("currentSrc");
+        .attr("src");
 
       db.Article.create(result)
         .then(function(dbArticle) {
@@ -62,6 +62,8 @@ router.get("/scrape", function(req, res) {
         .catch(function(err) {
           console.log(err);
         });
+      // console.log(result);
+
     });
   });
 });
